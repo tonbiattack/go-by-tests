@@ -6,7 +6,7 @@ Goのゼロ値、`nil`、`error`、`slice`、`channel`、`context`など、実�
 
 ## 内容
 
-初期版には13テーマを収録しています。UTF-8のバイト数と`rune`、`range`のバイト位置、`append`とバッキング配列、`nil slice`と空slice、mapのゼロ値、typed nil interface、error wrapping、`defer`、context cancellation、closed channel、`time.Time.Equal`、JSONの`omitempty`、Go 1.22のgoroutine range変数を扱います。
+初期版には**25テーマ**を収録しています。UTF-8のバイト数と`rune`、`range`のバイト位置、`strings.Builder`のコピー、stringと`[]byte`、`append`とバッキング配列、`slices.Clone`、`nil slice`と空slice、mapのゼロ値とnil map、typed nil interface、比較不能なslice、error wrapping・`errors.Join`・`errors.As`、`defer`とcloseエラー、context cancellation・deadline、closed/nil channel、`sync.Once`、`time.Time.Equal`、JSONの`omitempty`と非公開フィールド、Go 1.22のgoroutine range変数を扱います。
 
 ## ローカル実行
 
