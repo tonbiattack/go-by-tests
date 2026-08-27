@@ -5,4 +5,5 @@ export default defineConfig({
   site: "https://tonbiattack.github.io",
   base: process.env.GITHUB_ACTIONS ? "/go-by-tests" : "/",
   output: "static",
+  build: { inlineStylesheets: "always" },
 });

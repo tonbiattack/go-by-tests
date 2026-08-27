@@ -30,6 +30,7 @@ const asset = (path: string) => `${base}${path.replace(/^\//, "")}`;
           <button id="menu" aria-label="目次を開く">☰</button>
           <a href={asset("")} class="compact"><span class="brand-mark" aria-hidden="true"><i></i></span>GO/<b>TESTS</b></a>
           <a class="language-switch" href="https://tonbiattack.github.io/java-by-tests/" aria-label="Java by Testsを開く">JAVA →</a>
+          <a class="language-switch typescript-switch" href="https://tonbiattack.github.io/typescript-by-tests/" aria-label="TypeScript by Testsを開く">TS →</a>
           <button id="search-open">検索 ⌘K</button>
         </header>
         <slot />
@@ -100,6 +101,6 @@ const asset = (path: string) => `${base}${path.replace(/^\//, "")}`;
   #search-items a:hover { border-color: var(--green); background: rgba(0, 173, 216, .07); }
   #search-items span, #search-items small { color: var(--dim); font-family: var(--code); font-size: .58rem; letter-spacing: .045em; }
   #search-items strong { font-family: var(--display); font-size: .88rem; font-weight: 500; }
-  .language-switch { padding: .25rem .35rem; border: 1px solid var(--line); color: var(--muted); font-family: var(--code); font-size: .62rem; letter-spacing: .05em; }.language-switch:hover { border-color: #b6f04a; color: #b6f04a; }
+  .language-switch { padding: .25rem .35rem; border: 1px solid var(--line); color: var(--muted); font-family: var(--code); font-size: .62rem; letter-spacing: .05em; }.language-switch:hover { border-color: #b6f04a; color: #b6f04a; }.typescript-switch:hover { border-color: #3178c6; color: #5e9de0; }
   @media (max-width: 840px) { .shell { display: block; } .mobile { position: sticky; z-index: 20; top: 0; display: flex; height: 4rem; align-items: center; justify-content: space-between; padding: 0 1rem; border-bottom: 1px solid var(--line); background: rgba(11, 17, 21, .93); backdrop-filter: blur(1rem); } .mobile button { padding: .25rem; color: var(--muted); } .compact { display: flex; align-items: center; gap: .35rem; font-family: var(--display); font-size: .78rem; letter-spacing: .08em; } .compact b { color: var(--green); } }
 </style>
