@@ -1,0 +1,34 @@
+name: Verify Go by Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.22.x"
+      - name: Verify Go formatting
+        run: test -z "$(gofmt -d $(find examples -type f -name '*.go' -print))"
+      - name: Run Go tests
+        run: go test ./...
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - name: Install site dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Build static site
+        run: GITHUB_ACTIONS=true pnpm build
+      - name: Verify GitHub Pages links
+        run: GITHUB_PAGES_BASE=/go-by-tests pnpm verify:links
