@@ -564,6 +564,15 @@ export const lessons: Lesson[] = [
     tags: ["concurrency", "context", "cancel-cause", "error", "cancellation", "go-1.20"],
     outcome: "ctx.Err()        → context canceled\ncontext.Cause() → upstream unavailable",
   },
+  {
+    slug: "values/array-vs-slice", section: "Collections", title: "array と slice: 配列はコピーされsliceは要素を共有する", oneLine: "配列の引数は値として渡り、sliceの要素変更は呼び出し元へ反映されます。", version: "Go 1.22+", testName: "配列は値としてコピーされsliceは要素を共有する", sourceFile: "array_slice.go", testFile: "array_slice_test.go", sourcePath: "values/array_slice.go", testPath: "values/array_slice_test.go", checks: ["配列を変更して返しても元の配列は変わらない", "sliceの要素変更は呼び出し元へ反映される"], note: "arrayとsliceは見た目が似ていますが値共有の契約が違います。", tags: ["pitfall", "array", "slice", "copy"], outcome: "array → [original second]\nslice → [changed second]",
+  },
+  {
+    slug: "methods/value-vs-pointer-receiver", section: "Language", title: "receiver: value receiverはコピー、pointer receiverは元を更新する", oneLine: "value receiverの変更は呼び出し元へ残らず、pointer receiverの変更は元の値へ反映されます。", version: "Go 1.22+", testName: "valueReceiverはコピーを更新しpointerReceiverは呼び出し元を更新する", sourceFile: "receiver.go", testFile: "receiver_test.go", sourcePath: "methods/receiver.go", testPath: "methods/receiver_test.go", checks: ["value receiverはCounterのコピーを受け取る", "pointer receiverは呼び出し元のCounterを更新する"], note: "状態を更新するメソッドはpointer receiverを選びます。", tags: ["pitfall", "method-set", "pointer", "value"], outcome: "value receiver → 0\npointer receiver → 1",
+  },
+  {
+    slug: "channel/buffered-send", section: "Concurrency", title: "channel: buffered channelは容量まで受信者なしで送信できる", oneLine: "buffered channelは空き容量がある間、受信側を待たずに送信を受け付けます。", version: "Go 1.22+", testName: "bufferedChannelは受信者なしでも容量まで送信できる", sourceFile: "buffered_channel.go", testFile: "buffered_channel_test.go", sourcePath: "concurrency/buffered_channel.go", testPath: "concurrency/buffered_channel_test.go", checks: ["unbuffered channelは受信者なしのselect送信を選べない", "容量1のchannelは一件の送信を受け付ける"], note: "bufferは処理完了の保証ではありません。同期とキューイングを分けて設計します。", tags: ["behavior", "concurrency", "channel", "buffered"], outcome: "buffer 0 → send false\nbuffer 1 → send true",
+  },
 ];
 
 export const navigation = [...new Set(lessons.map((lesson) => lesson.section))].map((label) => ({
