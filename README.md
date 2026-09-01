@@ -114,6 +114,7 @@ src/data/lessons.ts ─────── examples/**/*.go
 | Java by Tests | [GitHub](https://github.com/tonbiattack/java-by-tests) | [Live Demo](https://tonbiattack.github.io/java-by-tests/) |
 | TypeScript by Tests | [GitHub](https://github.com/tonbiattack/typescript-by-tests) | [Live Demo](https://tonbiattack.github.io/typescript-by-tests/) |
 | Go by Tests | [GitHub](https://github.com/tonbiattack/go-by-tests) | [Live Demo](https://tonbiattack.github.io/go-by-tests/) |
+| Python by Tests | [GitHub](https://github.com/tonbiattack/python-by-tests) | [Live Demo](https://tonbiattack.github.io/python-by-tests/) |
 
 ## 新しいテーマを提案・追加する
 
